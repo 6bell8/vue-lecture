@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Course Goals</h1>
+      <!-- vue로 지정한 구문 내에서만 이용이 가능함 -->
+      <p>{{courseGoal}}</p>
+      <p></p>
+    </header>
+    <section id="user-goal">
+      <h2>My Course Goal</h2>
+      <!-- 기본적인 자바스크립트 표현식은 사용이 가능하다. -->
+      <p>{{outputGoal()}}</p>
+      <!-- 데이터바인딩 특수구문 (보간법)-->
+      <p>{{courseGoal}}</p>
+      <!-- Vue는 열고 닫는 태그 내에서만 이중괄호를 사용함
+      따라서 a, ''같은 따옴표 태그 내에서 사용할 수 있는 바인딩 방식은 v-bind:href  -->
+      <p>Learn morea <a v-bind:href="vueLink">about Vue</a></p>
+    </section>
+  </body>
+</html>

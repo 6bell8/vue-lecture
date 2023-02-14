@@ -10,13 +10,17 @@
     <div id="app">
       <div>
         <label for="goal">Goal</label>
-        <input type="text" id="goal" />
-        <button>Add Goal</button>
+        <input type="text" id="goal" v-model="enterValue" />
+        <!-- 메서드 함수를 v-on="(입력란)"에 추가 -->
+        <button v-on:click="addGoal">Add Goal</button>
       </div>
       <ul>
-        <li>Test</li>
+        <!-- vue에서 원하는만큼 출력하는 방법 및 goal을 출력하는 이중괄호문 -->
+        <li v-for="goal in goals">{{ goal }}</li>
       </ul>
     </div>
+    <script src="https://unpkg.com/vue@next"></script>
+
     <script src="app.js"></script>
   </body>
 </html>
