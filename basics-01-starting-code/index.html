@@ -21,13 +21,14 @@
     </header>
     <section id="user-goal">
       <h2>My Course Goal</h2>
+      <p>{{ outputGoal() }}</p>
       <!-- 기본적인 자바스크립트 표현식은 사용이 가능하다. -->
-      <p>{{outputGoal()}}</p>
+      <!-- 만약 자바스크립트로 html내에서 함수값을 입히고 싶을 때, v-html='' 이런 방식을 활용한다. 그런게 아니면 이중괄호{{outputGoal()}}을 활용 -->
       <!-- 데이터바인딩 특수구문 (보간법)-->
-      <p>{{courseGoal}}</p>
+      <!-- <p>{{courseGoal}}</p> -->
       <!-- Vue는 열고 닫는 태그 내에서만 이중괄호를 사용함
       따라서 a, ''같은 따옴표 태그 내에서 사용할 수 있는 바인딩 방식은 v-bind:href  -->
-      <p>Learn morea <a v-bind:href="vueLink">about Vue</a></p>
+      <p>Learn more <a v-bind:href="vueLink">about Vue</a></p>
     </section>
   </body>
 </html>
