@@ -18,9 +18,27 @@
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button>Add</button>
-      <button>Remove</button>
+      <!-- v-on 특정 반응을 할 때 사용하는 이벤트 click, mouseenter, mouseleave 등등 -->
+      <!-- v-on:click='counter++' 등 순수자바스크립트를 바로 사용가능, 하지만 html은 출력 위주로 해야되기때문에 js에서 호출하는 방식을 권고함  -->
+      <button v-on:click="addCounter(5)">Add</button>
+      <button v-on:click.right="reduceCounter(5)">Reduce</button>
+      <!-- v-once 를 넣으면 초기값으로 고정된다  -->
+      <p v-once>Starting Counter : {{counter}}</p>
       <p>Result: {{ counter }}</p>
+      <!-- input 입력 값을 카피 할 수 있는 방법 -->
+      <!-- setName에서 추가하고 싶은 문구가 있을 때 첫번째 인자앞에 $를 붙힌다 -->
+      <input
+        type="text"
+        v-on:input="setName($event, 'park')"
+        v-on:keyup.enter="confirmInput"
+      />
+      <p>Your Name: {{confirmedName}}</p>
+      <!-- form에서 submit하는 것도 v-on으로 제어 -->
+      <!-- html에서 Vue로 제어하는 방법, 이벤트 구동대상에 .을 붙여서 prevent로 막아주는 방법이 있음  -->
+      <form v-on:submit.prevent>
+        <input type="text" />
+        <button>Sign up</button>
+      </form>
     </section>
   </body>
 </html>
