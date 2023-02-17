@@ -19,15 +19,21 @@
     <section id="assignment">
       <h2>Event Practice</h2>
       <!-- 1) Show an alert (any text of your choice) when the button is pressed -->
-      <button>Show Alert</button>
+      <button v-on:click="clickBtn">Show Alert</button>
       <hr />
       <!-- 2) Register the user input on "keydown" and output it in the paragraph (hint: event.target.value helps) -->
-      <input type="text" />
-      <p>OUTPUT</p>
+      <!-- event.target.value 를 사용할 때 인자값에 반드시 $를 붙혀준다 -->
+      <!-- 출력하려는 내용과 출력 받는 대상을 일치시키고, input값에 출력받는 대상을 event.target.value 걸어서 일치시켜준다 -->
+      <input type="text" v-on:keydown="confirmInput01($event)" />
+      <p>OUTPUT : {{confirmOutput01}}</p>
       <hr />
       <!-- 3) Repeat 2) but only output the entered value if the ENTER key was pressed -->
-      <input type="text" />
-      <p>OUTPUT</p>
+      <input
+        type="text"
+        v-on:input="setOutput02"
+        v-on:keyup.enter="confirmInput02($event)"
+      />
+      <p>OUTPUT : {{confirmOutput02}}</p>
     </section>
   </body>
 </html>

@@ -23,16 +23,18 @@
       <button v-on:click="addCounter(5)">Add</button>
       <button v-on:click.right="reduceCounter(5)">Reduce</button>
       <!-- v-once 를 넣으면 초기값으로 고정된다  -->
-      <p v-once>Starting Counter : {{counter}}</p>
+      <p>Starting Counter : {{counter}}</p>
       <p>Result: {{ counter }}</p>
       <!-- input 입력 값을 카피 할 수 있는 방법 -->
       <!-- setName에서 추가하고 싶은 문구가 있을 때 첫번째 인자앞에 $를 붙힌다 -->
-      <input
-        type="text"
-        v-on:input="setName($event, 'park')"
-        v-on:keyup.enter="confirmInput"
-      />
-      <p>Your Name: {{confirmedName}}</p>
+      <!-- 핵심은 필요한 입력값을 바이딩해서 재사용하는 것! -->
+      <!-- v-model은 v-on:input, v-bind:value의 축약어(데이터 바인딩, 이벤트 바인딩) 양방향 바인딩이라고 한다. -->
+      <input type="text" v-model="name" />
+      <input type="text" v-model="lastName" />
+      <button v-on:click="resetInput">Reset Input</button>
+      <!-- 참조 되는 data 값을 잘 사용해야된다. -->
+      <!-- 연산자는 () 함수처리를 하지않는다 -->
+      <p>Your Name: {{ fullname }}</p>
       <!-- form에서 submit하는 것도 v-on으로 제어 -->
       <!-- html에서 Vue로 제어하는 방법, 이벤트 구동대상에 .을 붙여서 prevent로 막아주는 방법이 있음  -->
       <form v-on:submit.prevent>
