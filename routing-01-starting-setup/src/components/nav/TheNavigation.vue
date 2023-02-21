@@ -3,10 +3,12 @@
     <nav>
       <ul>
         <li>
-          <button @click="setActivePage('teams-list')">Teams</button>
+          <!-- 다른페이지가 업로드 되는 것을 막음 -->
+          <!-- 먼저 main.js에서 router 설정을 잡고 html로 와서 router-link to='/'로 세팅한다 -->
+          <router-link to="/teams">Teams</router-link>
         </li>
         <li>
-          <button @click="setActivePage('users-list')">Users</button>
+          <router-link to="/users">Users</router-link>
         </li>
       </ul>
     </nav>
@@ -14,14 +16,7 @@
 </template>
 
 <script>
-export default {
-  emits: ['set-page'],
-  methods: {
-    setActivePage(page) {
-      this.$emit('set-page', page);
-    },
-  },
-};
+export default {};
 </script>
 
 <style scoped>
@@ -49,8 +44,8 @@ li {
   margin: 0 2rem;
 }
 
-button {
-  font: inherit;
+a {
+  text-decoration: none;
   background: transparent;
   border: 1px solid transparent;
   cursor: pointer;
@@ -59,8 +54,9 @@ button {
   display: inline-block;
 }
 
-button:hover,
-button:active {
+a:hover,
+a:active,
+a.active {
   color: #f1a80a;
   border-color: #f1a80a;
   background-color: #1a037e;

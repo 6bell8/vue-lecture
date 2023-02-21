@@ -16,17 +16,32 @@
 import UserItem from '../users/UserItem.vue';
 
 export default {
+  // app에서 가져온 데이터를 집어넣음
+  inject: ['users', 'teams'],
   components: {
-    UserItem
+    UserItem,
   },
   data() {
     return {
-      teamName: 'Test',
-      members: [
-        { id: 'u1', fullName: 'Max Schwarz', role: 'Engineer' },
-        { id: 'u2', fullName: 'Max Schwarz', role: 'Engineer' },
-      ],
+      teamName: '',
+      members: '',
     };
+  },
+  // 생명주기 훅 컴포넌트 생성 시 모든 데이터가 사용 가능 상태,
+  created() {
+    // params는 페이지 로드에 사용된 모든 $route 매개변수를 갖고있다 따라서, main.js에서 콜른뒤에 표시한 매개변수를 가져다가 사용하면된다
+    const teamId = this.$route.params.teamId; // teams/t1
+    const selectedTeam = this.teams.find((team) => team.id === teamId);
+    const members = selectedTeam.members;
+    const seclectedMembers = [];
+    // for of (배열 순환문) 모든 member를 가져오는 키워드
+    // member 내 유저 프로퍼티를 가져오는 문법
+    for (const member of members) {
+      const selectedUser = this.users.find((user) => user.id === member);
+      seclectedMembers.push(selectedUser);
+    }
+    this.members = seclectedMembers;
+    this.teamName = selectedTeam.name;
   },
 };
 </script>

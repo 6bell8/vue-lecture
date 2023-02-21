@@ -1,6 +1,13 @@
 <template>
+  <!-- 버튼을 눌렀을 때 프로그램 자체에서 이동하는 방법 -->
+  <button @click="confirmInput">Confirm</button>
   <ul>
-    <user-item v-for="user in users" :key="user.id" :name="user.fullName" :role="user.role"></user-item>
+    <user-item
+      v-for="user in users"
+      :key="user.id"
+      :name="user.fullName"
+      :role="user.role"
+    ></user-item>
   </ul>
 </template>
 
@@ -12,6 +19,14 @@ export default {
     UserItem,
   },
   inject: ['users'],
+  methods: {
+    // $는 this뒤에 $놓고, 라우터 메모리에 push 하는 방법이다.
+
+    // 특수한 형태의 router 패키지 프로퍼티 접근법이다.
+    confirmInput() {
+      this.$router.push('/teams');
+    },
+  },
 };
 </script>
 
