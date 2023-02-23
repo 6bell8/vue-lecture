@@ -8,4 +8,22 @@ git switch coupon 을 입력하면 브랜치로 이동한 것이다.
 git branch는 원래 있던 master에서 가지를 하나 더 내뻗는 기능을 뜻한다. 
 git swich (작명) 이후 작업을 하면 해당 과정은 branch 밖에서 이루어지고 git add . git commit -m 을 하더라도
 원래 git switch master 했으면 해당 작업한 내용은 생략되고 원래 master 파일로 돌아온다.
-코딩애플 3:18분
+
+-독립적으로 개발 할 수 있어서 안정적임
+
+따라서 
+1. 서브(cookie) 브랜치에서 수정해서 올리는 거 따로 올라감
+
+2. 메인 브랜치로 돌아와서 git add . > git commit -m "메인으로 돌아와서 올리는 것도 따로 올라감"
+- push는 아님 only commit
+
+3. 서브(cookie) 브랜치에서 수정한 것이 잘 올라가면 메인 브랜치에다가 합칠 수가 있다.
+- 일단 master 브랜치로 넘어가고
+
+4. 명령어는 git merge cookie(합칠 서브 브랜치)
+- 문제가 발생하는 부분은 다른 스타트 포인트에서 같은 부분을 수정했을 떄 충돌이 발생한다.
+- 충돌이 발생했을 때 충돌 지점을 에디터를 통해서 지우고, 수동으로 해결해야된다.
+
+5. git add . git commit -m "이상" 내용을 작성해준다.
+
+git log --graph(를 사용해서 로그확인)
