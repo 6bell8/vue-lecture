@@ -1,6 +1,7 @@
 <template>
   <the-navigation></the-navigation>
   <main>
+    <!-- 최상위 route만 다룬다 -->
     <router-view></router-view>
   </main>
 </template>

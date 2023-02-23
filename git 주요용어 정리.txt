@@ -1,0 +1,11 @@
+git 관련 용어 메모
+
+branch는 commit 의 복사본
+
+git branch coupon(작명)  < 사본을 만든 것이다.
+git switch coupon 을 입력하면 브랜치로 이동한 것이다.
+
+git branch는 원래 있던 master에서 가지를 하나 더 내뻗는 기능을 뜻한다. 
+git swich (작명) 이후 작업을 하면 해당 과정은 branch 밖에서 이루어지고 git add . git commit -m 을 하더라도
+원래 git switch master 했으면 해당 작업한 내용은 생략되고 원래 master 파일로 돌아온다.
+코딩애플 3:18분
