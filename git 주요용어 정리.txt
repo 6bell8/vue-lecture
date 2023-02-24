@@ -26,4 +26,27 @@ git swich (작명) 이후 작업을 하면 해당 과정은 branch 밖에서 이
 
 5. git add . git commit -m "이상" 내용을 작성해준다.
 
-git log --graph(를 사용해서 로그확인)
+git log --graph --oneline --all(를 사용해서 로그확인)
+
+
+3way-merge
+각 브랜치에 신규 commit이 있는 경우
+
+메인 브랜치에서 파생 된 a와, 신규 브랜치 b를 switch a를 해서 뒤로 돌아가서 합쳐주는 것이 아닌 새로 커밋을 생성해서 합칠 수가 있다.
+
+fast-forward-merge
+master branch에서 신규 커밋이 없고 파생 된 브랜치만 있을 때, 자동으로 발동되어 master branch로 사용된다.
+
+
+
+merge 완료 된 브랜치 삭제는
+필요없는 브랜치 삭제 git branch -d 
+
+merge 안한 브랜치 삭제는
+필요없는 브랜치 삭제 git branch -D
+
+
+
+rebase merge
+깔끔해 보여서 추구
+신규에서 branch없이 코드를 짜는 느낌이 듦
