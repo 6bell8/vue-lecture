@@ -79,6 +79,7 @@ const app = Vue.createApp({
       // event 인자 값을 html에서 받지않고 함수 내에서 받음
       this.name = event.target.value;
     },
+
     addCounter(num) {
       this.counter = this.counter + num;
     },

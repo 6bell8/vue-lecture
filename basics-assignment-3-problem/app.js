@@ -5,6 +5,7 @@ const app = Vue.createApp({
       state: "Not yet",
     };
   },
+  // 데이터가 변경 되었을 때 콜백 함수를 정의하는 속성 watch
   watch: {
     counter(value) {
       if (value < 20) {
