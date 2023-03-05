@@ -6,6 +6,12 @@ const app = Vue.createApp({
       boxCSelected: false,
     };
   },
+  // 동적 클래스가 많으면 사용할 수 있는 것은 연산자이다
+  computed: {
+    boxAClasses() {
+      return { active: this.boxASelected };
+    },
+  },
   methods: {
     boxSelected(box) {
       if (box === "A") {
