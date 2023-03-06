@@ -24,12 +24,12 @@
       <!-- :class="boxASelected ? 'demo active' : 'demo'" -->
 
       <!-- 더 직관적인 방법으로 demo를 항상  true로 냅두고, active(활성화)값을 boxASelected로 지정 가독성이 더 좋음-->
-      <div class="demo" :class="boxAClassse" @click="boxSelected('A')"></div>
+      <div class="demo" :class="boxAClasses" @click="boxSelected('A')"></div>
       <!-- :class 동적 바인딩으로 class css 속성을 바인딩 해줄 수 있다. -->
       <!-- methods 함수를 활용해서 class값 부여 -->
+      <!-- 동적 클래스를 배열로 압축해서 사용 하기도 한다, active는 css 처럼 활성화 될 떄 사용가능 active : boxAselected 면 boxAselected활성화 -->
       <div
-        class="demo"
-        :class="{active:boxBSelected}"
+        :class="['demo',{active:boxBSelected}]"
         @click="boxSelected('B')"
       ></div>
       <div
